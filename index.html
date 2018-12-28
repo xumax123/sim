@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>海口飞行部安技室模拟机复训题库学习</title>
+<title>海口飞行部安技室模拟机复训题库</title>
 <style type="text/css">
 <!--
 body {
@@ -43,7 +43,7 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
 /* ~~ 此容器包含所有其它 div，并依百分比设定其宽度 ~~ */
 .container {
 	width: 100%;
-	max-width: 1260px;/* 可能需要最大宽度，以防止此布局在大型显示器上过宽。这将使行长度更便于阅读。IE6 不遵循此声明。 */
+	//max-width: 1260px;/* 可能需要最大宽度，以防止此布局在大型显示器上过宽。这将使行长度更便于阅读。IE6 不遵循此声明。 */
 	background-color: #FFF;
 	margin: 0 auto; /* 侧边的自动值与宽度结合使用，可以将布局居中对齐。如果将 .container 宽度设置为 100%，则不需要此设置。 */
 	overflow: hidden; /* 此声明将使 .container 清除其包含的所有浮动列。 */
@@ -60,6 +60,10 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
 4) 如果您更喜欢在右侧（而不是左侧）进行导航，只需使这些列向相反方向浮动（全部向右，而非全部向左），它们将按相反顺序显示。您无需在 HTML 源文件中移动 div。
 
 */
+.sidebar1 ul{
+	width:20%;
+	position: fixed;
+}
 .sidebar1 {
 	float: left;
 	width: 20%;
@@ -75,10 +79,7 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
 .content ul, .content ol { 
 	padding: 0 10px 10px 40px; /* 此填充反映上述标题和段落规则中的右填充。填充放置于下方可用于间隔列表中其它元素，置于左侧可用于创建缩进。您可以根据需要进行调整。 */
 }
-ul{
-	
-	position: fixed;
-}
+
 /* ~~ 导航列表样式（如果选择使用预先创建的 Spry 等弹出菜单，则可以删除此样式） ~~ */
 ul.nav {
 	list-style: none; /* 这将删除列表标记 */
@@ -116,7 +117,7 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* 这将更改鼠标和键盘
 -->
 </style><!--[if lte IE 7]>
 <style>
-.content { margin-right: -1px; } /* 此 1px 负边距可以放置在此布局中的任何列中，且具有相同的校正效果。 */
+.content { margin-right: -1px;} /* 此 1px 负边距可以放置在此布局中的任何列中，且具有相同的校正效果。 */
 ul.nav a { zoom: 1; }  /* 缩放属性将为 IE 提供其需要的 hasLayout 触发器，用于校正链接之间的额外空白 */
 </style>
 <![endif]-->
@@ -148,7 +149,7 @@ h1{
 }
 .question {
 	background-color: #FFF;
-	position: relative;
+	//position: relative;
 	margin-top: 5px;
 	margin-bottom: 25px;
 }
@@ -168,7 +169,7 @@ h1{
 }
 .question .msg {
 	display:none;
-	position:absolute;
+	//position:absolute;
 }
 .showResult{
 	visibility:hidden;
