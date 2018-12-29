@@ -171,7 +171,7 @@ h1{
 }
 .question .msg {
 	display:none;
-	//position:absolute;
+	position:absolute;
 }
 .showResult{
 	visibility:hidden;
@@ -349,12 +349,12 @@ $(".nav a").click(function(e) {
 		var q=$(this).parents(".question");
 		if(q.find(".answer").text()==$(this).val()){
 			//显示提示信息
-			q.find(".msg").text(" 高手！");
+			q.find(".msg").text("✔");
 			q.find(".msg").fadeIn(1000);
 			//设置记录，用来生成错题集
 			Records[Number($(this).attr("name"))-1]=1;
 		}else{
-			var str=" 正确的选项是："+q.find(".answer").text();
+			var str="T_T 答案是："+q.find(".answer").text();
 			q.find(".msg").text(str);
 			q.find(".msg").fadeIn(1000);
 			//设置记录，用来生成错题集
