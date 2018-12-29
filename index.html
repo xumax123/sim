@@ -93,14 +93,10 @@ ul.nav a { /* 对这些选择器进行分组可确保链接即使在访问之后
 	padding: 5px 5px 5px 15px;
 	display: block; /* 这将为链接赋予块属性，使其填满包含它的整个 LI。这样，整个区域都可以响应鼠标单击操作。 */
 	text-decoration: none;
-	background-color: rgb(63, 148, 148);
+	background-color: rgb(29, 115, 165);
 	color: #000;
 }
-ul.nav a:visited{
-	color:white;
-	background-color:rgb(202, 96, 8);
-}
-ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* 这将更改鼠标和键盘导航的背景和文本颜色 */
+ul.nav a:hover{ /* 这将更改鼠标和键盘导航的背景和文本颜色 */
 	background-color:rgb(202, 96, 8);
 	color: #FFF;
 }
@@ -180,11 +176,16 @@ h1{
 .showResult{
 	visibility:hidden;
 }
+.error_undo{
+	display: none;
+}
 #content{
 	background-color:#d9ecff;
 	padding: 5px;
 	border: 3px solid #0080c0;
+	
 }
+
 </style>
 
 </head>
@@ -223,7 +224,7 @@ h1{
 				<td><label><input name="random" type="checkbox" />题库乱序</label></td>
 				<td><button id="showSide">隐藏左侧</button></td>
 				<td><button id="showAll">点击『查看』所有答案</button></td>
-				<td><span id="showCurrentTitle" style="padding-right:50px;">点击右边的题库后，出现该题库的名字</span></td>
+				<td><span id="showCurrentTitle" style="padding-right:50px;">点击左边题库进行学习</span></td>
 			</tr>
 			</table>	
 
@@ -231,6 +232,9 @@ h1{
 
    
     <div id="content">
+			<p>本考试題目，根据珠海模拟机题库转换而来，由海口飞行部安技室组织编写</p>
+			<p>本文档在编写过程中，我们竭尽所能地将最好的呈现给大家，但也难免有疏漏和不妥之处，敬请大家不吝指正。</p>
+			<p>若有疑问或任何建议，可致☎：１８８８９７６９２００</p>
     </div>
     
     <hr />
@@ -339,11 +343,15 @@ function showQuestion(tiKu,ifRandom){
 $(function(){
 	$(".nav a").each(function(index, element) {
         $(this).append("("+ChoiceLib[$(this).attr("value")].length+")");
-    });
-	$(".nav a").eq(0).click();
+	});
+	$(".content").height($(".nav").height());
+	//$(".nav a").eq(0).click();
 });
+
 $(".nav a").click(function(e) {
 	//alert($(this).attr("value"));
+	$(".content").css({height:"auto"})
+	$(this).css({color:"white","background-color":"rgb(85, 56, 33)"});
 	$(".error_undo").css("display","none");
 	
 	$("#showAll").text("点击『查看』所有答案");
