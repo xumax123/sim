@@ -9,6 +9,10 @@
     h1{
         text-align: center;
     }
+    .copyright{
+        text-align: right;
+        color:gainsboro;
+    }
     .birthDay{
         border-style:dashed;
         border-color:cornflowerblue;
@@ -32,9 +36,6 @@ $(function(){
     for(var i=0;i<birthDay.length;i++){
         var data=birthDay[i];
         var birth=new Date(data[2]);
-        if(birth.getMonth()==0){
-            console.log(data)
-        }
         if(today.getDate()==birth.getDate()&&
         today.getMonth()==birth.getMonth()){
             pilotsData.push(data);
@@ -49,7 +50,7 @@ $(function(){
     if(pilotsData.length<1){
         $(".birthDay"). append("今天没有人过生日！")
     }
-     
+    $(".birthDay"). append("<div class='copyright'>海口飞行部安技室数据化小组设计<br />2019年01月31日</div>")
 })
 
     </script>
