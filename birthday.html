@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>员工今日生日</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    h1{
+        text-align: center;
+    }
+    .birthDay{
+        border-style:dashed;
+        border-color:cornflowerblue;
+        border-width: 3px;
+        padding: 10px;
+    }
+    </style>
+    <script src="birthDay.js"></script>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <h1>海口飞行部今日生日</h1>
+    <div class="birthDay">
+    <h2 id="today">今天是：</h2>
+    </div>
+    <script>
+$(function(){
+    var today=new Date();
+    $("#today").append(today.getFullYear()+"年"+(today.getMonth()+1)+"月"+today.getDate()+"日 ");
+    var pilotsData=[];
+    for(var i=0;i<birthDay.length;i++){
+        var data=birthDay[i];
+        var birth=new Date(data[2]);
+        if(birth.getMonth()==0){
+            console.log(data)
+        }
+        if(today.getDate()==birth.getDate()&&
+        today.getMonth()==birth.getMonth()){
+            pilotsData.push(data);
+        }
+    } 
+    for(var i=0;i<pilotsData.length;i++){
+        var str=pilotsData[i][1]+"("+pilotsData[i][0]+") "+
+        new Date(pilotsData[i][2]).getFullYear()+"年出生<br />"+
+        pilotsData[i][3]+"参加工作<br />"
+         $(".birthDay"). append(str+"<br />")
+    }
+    if(pilotsData.length<1){
+        $(".birthDay"). append("今天没有人过生日！")
+    }
+     
+})
+
+    </script>
+</body>
+</html>
