@@ -43,7 +43,8 @@ $(function(){
     } 
     for(var i=0;i<pilotsData.length;i++){
         var str=pilotsData[i][1]+"("+pilotsData[i][0]+") "+
-        new Date(pilotsData[i][2]).getFullYear()+"年出生<br />"+
+        new Date(pilotsData[i][2]).getFullYear()+"年出生,现"+
+        (today.getFullYear()-(new Date(pilotsData[i][2]).getFullYear()))+"岁<br />"+
         pilotsData[i][3]+"参加工作，共工作"+
         (today.getFullYear()-(new Date(pilotsData[i][3])).getFullYear())+"年<br />"
          $(".birthDay"). append(str+"<br />")
