@@ -14,10 +14,11 @@
         color:gainsboro;
     }
     .birthDay{
-        border-style:dashed;
+        border-style:double;
         border-color:cornflowerblue;
         border-width: 3px;
         padding: 10px;
+        border-radius: 8px;
     }
     </style>
     <script src="birthDay.js"></script>
@@ -46,8 +47,9 @@ $(function(){
         var birth=new Date(pilotsData[i][2]);
         var workYear=parseInt(pilotsData[i][3].split("").slice(0,4).join(""));
         var work=new Date(workYear,1,1);
-        var today=new Date();
-        var str=pilotsData[i][1]+"("+pilotsData[i][0]+") "+
+       // var today=new Date();
+        var str=pilotsData[i][1]+"("+pilotsData[i][0]+") ("+
+        pilotsData[i][4]+")<br />"+
         birth.getFullYear()+"年出生，现"+
         (today.getFullYear()-birth.getFullYear())+"岁<br />"+
         pilotsData[i][3]+"参加工作，共工作"+
@@ -57,7 +59,7 @@ $(function(){
     if(pilotsData.length<1){
         $(".birthDay"). append("今天没有人过生日！ <br /><br />")
     }
-    $(".birthDay"). append("<div class='copyright'>海口飞行部安技室数据化小组设计<br />2019年01月31日</div>")
+    $(".birthDay"). append("<div class='copyright'>海口飞行部安技室数据化小组设计<br />2019年01月31日<br />2019年03月14日更新名单错误</div>")
 })
 
     </script>
