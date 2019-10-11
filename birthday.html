@@ -31,22 +31,27 @@
     <script>
 $(function(){
     var today=new Date();
-    $("#today").append(today.getFullYear()+"年"+(today.getMonth()+1)+"月"+today.getDate()+"日 ");
+    $("#today").append(today.getFullYear()+"年"+(today.getMonth()+1)+"月"+today.getDate()+"日<br /> ");
     var pilotsData=[];
     for(var i=0;i<birthDay.length;i++){
         var data=birthDay[i];
         var birth=new Date(data[2]);
+        //$("#today").append(birth.getMonth()+"月"+birth.getDate()+"<br />");
         if(today.getDate()==birth.getDate()&&
         today.getMonth()==birth.getMonth()){
             pilotsData.push(data);
         }
     } 
     for(var i=0;i<pilotsData.length;i++){
+        var birth=new Date(pilotsData[i][2]);
+        var workYear=parseInt(pilotsData[i][3].split("").slice(0,4).join(""));
+        var work=new Date(workYear,1,1);
+        var today=new Date();
         var str=pilotsData[i][1]+"("+pilotsData[i][0]+") "+
-        new Date(pilotsData[i][2]).getFullYear()+"年出生，现"+
-        (today.getFullYear()-(new Date(pilotsData[i][2]).getFullYear()))+"岁<br />"+
+        birth.getFullYear()+"年出生，现"+
+        (today.getFullYear()-birth.getFullYear())+"岁<br />"+
         pilotsData[i][3]+"参加工作，共工作"+
-        (today.getFullYear()-(new Date(pilotsData[i][3])).getFullYear())+"年<br />"
+        (today.getFullYear()-work.getFullYear())+"年<br />";
          $(".birthDay"). append(str+"<br />")
     }
     if(pilotsData.length<1){
