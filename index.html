@@ -15,10 +15,17 @@
     }
     .birthDay{
         border-style:double;
-        border-color:cornflowerblue;
+        border-color:#6f42c1;
         border-width: 3px;
         padding: 10px;
         border-radius: 12px;
+    }
+    b{
+    background-color:#6f42c1;
+    color:white;
+    border-radius:5px;
+    padding:3px 5px ;
+    margin-bottom:10px;
     }
     </style>
     <script src="birthDay.js"></script>
@@ -47,18 +54,18 @@ $(function(){
         var birth=new Date(pilotsData[i][2]);
         var work=new Date(pilotsData[i][3]);
        // var today=new Date();
-        var str=pilotsData[i][1]+"("+pilotsData[i][0]+") ("+
-        pilotsData[i][4]+")<br />"+
+        var str="<b>"+pilotsData[i][1]+"("+pilotsData[i][0]+") ("+
+        pilotsData[i][4]+")</b><br />"+
         birth.getFullYear()+"年出生，现"+
         (today.getFullYear()-birth.getFullYear())+"岁<br />"+
-        work.getFullYear()+"年"+work.getMonth()+"月参加工作，共工作"+
+        work.getFullYear()+"年"+(work.getMonth()+1)+"月参加工作，共工作"+
         (today.getFullYear()-work.getFullYear())+"年<br />";
          $(".birthDay"). append(str+"<br />")
     }
     if(pilotsData.length<1){
         $(".birthDay"). append("今天没有人过生日！ <br /><br />")
     }
-    $(".birthDay"). append("<div class='copyright'><img src='logo.png' width='200px' /><br />2019年01月31日<br />2019年03月14日更新名单错误</div>")
+    $(".birthDay"). append("<div class='copyright'><img src='logo.png' width='200px' /><br />2019年01月31日<br />2019年03月14日更新名单错误<br />2020年06月01日更新名单<br />（删退休人员、增加新入人员）</div>")
 })
 
     </script>
